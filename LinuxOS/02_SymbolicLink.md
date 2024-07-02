@@ -49,16 +49,16 @@
     ```
 
 ## 🔥 Challenge !
-1. **`cat` 을 입력하면 `ls`가 실행되게 만들기**
-    
-    `ls -s $(which ls) ~/bin/cat`
-
-2. **`readfile`을 입력하면 `cat`이 실행되게 만들기**
-
-    `ls -s $(which cat) ~/bin/readfile`
-
-안되면 이렇게 적용하기.
-
 ` export PATH=~/bin:$PATH`
 
 `source ~/.bashrc`
+1. **`cat` 을 입력하면 `ls`가 실행되게 만들기**
+    
+    `ls -s /bin/ls ~/bin/cat`
+
+2. **`readfile`을 입력하면 `cat`이 실행되게 만들기**
+
+    `ls -s /bin/cat ~/bin/readfile`
+
+![challange](img/challenge2.png)
+
