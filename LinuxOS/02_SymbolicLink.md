@@ -16,7 +16,7 @@
     ```
     ln -s [원본 파일/디렉토리] [링크 이름]   //생성 방법
     ```
-    ![test ln -s](img/image.png)
+    ![test ln -s](img/link.png)
     
     
     ```
