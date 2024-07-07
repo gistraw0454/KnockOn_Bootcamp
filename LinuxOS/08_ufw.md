@@ -135,7 +135,7 @@
         
         `sudo ufw disable` : 방화벽 비활성화
         
-        ![alt text](image-1.png)
+        ![alt text](img/image-1.png)
 
     - 기본룰 : 들어오는 패킷에 대해서는 전부 deny , 나가는 패킷에 대해서는 전부 allow
 
@@ -149,16 +149,16 @@
         ```cmd
         sudo ufw allow <port>/<optional: protocal>
         ```
-        ![alt text](image-3.png)
+        ![alt text](img/image-3.png)
 
     - UFW 거부
         ```cmd
         sudo ufw deny <port>/<optional: protocol>
         ```
-        ![alt text](image-4.png)
+        ![alt text](img/image-4.png)
     
     - UFW 룰 삭제
-        ![alt text](image-5.png)
+        ![alt text](img/image-5.png)
 
     - service 명을 이용한 설정
 
@@ -166,28 +166,28 @@
         ```cmd
         sudo ufw allow <service name>
         ```
-        ![alt text](image-6.png)
+        ![alt text](img/image-6.png)
     
     - 특정 IP 주소 허용/거부
         ```bash
         sudo ufw allow from <ip address>
         ```
 
-        ![alt text](image-7.png)
+        ![alt text](img/image-7.png)
     
     - 특정 IP 주소와 일치하는 포트 허용/거부
         ```cmd
         sudo ufw allow from <ip address> to <protocol> port <port number>
         ```
-        ![alt text](image-8.png)
+        ![alt text](img/image-8.png)
     - 특정 IP 주소와 프로토콜, 포트 허용/거부
         ```
         sudo ufw allow from <ip address> to <protocol> port <port number> proto <protocol name>
         ```
-        ![alt text](image-9.png)
+        ![alt text](img/image-9.png)
 
     추천 방화벽 정책
-    ![alt text](image-10.png)
+    ![alt text](img/image-10.png)
 
 ## 🔥 Challenge !
 1. **모든 ip 접근을 막았을 때 변화**

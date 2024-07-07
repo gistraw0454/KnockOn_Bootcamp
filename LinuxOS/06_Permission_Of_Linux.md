@@ -78,13 +78,13 @@
     # admin에 대해 모두 접근할 수 있는 권한을 추가
     sudo nano /etc/sudoers
     ```
-    ![alt text](image-11.png)
+    ![alt text](img/image-11.png)
 
     ```bash
     # 사용자 권한 부여
     sudo nano /etc/sudoers
     ```
-    ![alt text](image-12.png)
+    ![alt text](img/image-12.png)
     이렇게 하기보다는.. 사용자를 그룹에 추가하고 그룹에 대한 권한을 부여하는 것을 권장
 
 4. **chmod, chown 명령어**
@@ -149,5 +149,5 @@
     # guest 사용자에게만 rwx 권한 부여
     sudo chown 700 [파일명]
     ```
-    ![alt text](image-13.png)
+    ![alt text](img/image-13.png)
 [Bandit Wargame](https://overthewire.org/wargames/bandit/)
