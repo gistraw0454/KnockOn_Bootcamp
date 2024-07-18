@@ -1,49 +1,49 @@
-# ? 04. ÀÔÃâ·ÂÇÔ¼ö
-## ? ÀÔÃâ·ÂÇÔ¼ö?
-1. **Æ÷¸ä ½ºÆ®¸µ ÀÌ¶õ?**
-- Æ÷¸ä ÇÔ¼öÀÇ ÀÎÀÚÀÌ¸ç, ´ÙÀ½°ú °°Àº ÅØ½ºÆ® ¹× Æ÷¸äÀÎÀÚ¸¦ Æ÷ÇÔÇÏ´Â ASCII ¹®ÀÚ¿­
+# ðŸŒˆ 04. ìž…ì¶œë ¥í•¨ìˆ˜
+## ðŸ’¡ ìž…ì¶œë ¥í•¨ìˆ˜?
+1. **í¬ë©§ ìŠ¤íŠ¸ë§ ì´ëž€?**
+- í¬ë©§ í•¨ìˆ˜ì˜ ì¸ìžì´ë©°, ë‹¤ìŒê³¼ ê°™ì€ í…ìŠ¤íŠ¸ ë° í¬ë©§ì¸ìžë¥¼ í¬í•¨í•˜ëŠ” ASCII ë¬¸ìžì—´
 
     `printf("The magic number is:%d\n",1911);`
 
-    - Æ÷¸äÇÔ¼ö
+    - í¬ë©§í•¨ìˆ˜
         - fprint, printf, sprintf, snprintf, vfprintf, vprintf, vsprintf, vsnprintf
-    - Æ÷¸äÀÎÀÚ
-        - %%, %p, %d, %c, %u, %x, %s, %n(¾²ÀÎ ÃÑ ¹ÙÀÌÆ® ¼ö), %f, %lf
-    - +Æ÷¸ä½ºÆ®¸µ °ø°Ý
-        - ÇÁ·Î±×·¥¿¡ ÀÔ·ÂµÈ ¹®ÀÚ¿­ µ¥ÀÌÅÍ°¡ ¸í·ÉÀ¸·Î ÇØ¼®µÉ ¶§ ¹ß»ý. °ø°ÝÀÚ´Â ÄÚµå¸¦ ½ÇÇàÇÏ°Å³ª ½ºÅÃ ¸Þ¸ð¸® ÀÏºÎ¸¦ ÀÐ°Å³ª ½ÇÇàÁßÀÎ ÇÁ·Î±×·¥¿¡ segementation fault ¹ß»ý½ÃÄÑ ½Ã½ºÅÛ¿¡ ÀÇµµµÇÁö ¾ÊÀº µ¿ÀÛ ÀÏÀ¸Å´.
-        - `printf("%s",argv[1]);`Àº ¾ÈÀüÇÏÁö¸¸, `printf(argv[1])`´Â À§ÇèÇÏ´Ù.
-            - ./example 'Hello world %s%s%s%s%s%s'¸¦ ½ÇÇàÇÏ¸é, ¹®ÀÚ¿­ Æ÷ÀÎÅÍ¿¡ ´ëÇÑ ÂüÁ¶·Î ÆÄ½ÌµÇ¹Ç·Î ¸ðµç %s¸¦ ¹®ÀÚ¿­¿¡ ´ëÇÑ Æ÷ÀÎÅÍ·Î ÇØ¼®ÇÑ´Ù. Æ¯Á¤ ½ÃÁ¡¿¡¼­ Àß¸øµÈ ÁÖ¼Ò¿¡ µµ´ÞÇÏ¿© ¾×¼¼½º¸¦ ½ÃµµÇÏ¸é ÇÁ·Î±×·¥ÀÌ Áß´ÜµÈ´Ù.
-        - `snprintf(buf,sizeof buf, argv[1])` À§Çè
-            - `./example 'Hello World %s%s%s%s%s%s`¸¦ ½ÇÇàÇÏ¸é ¾ÛÅ©·¡½Ã°¡ ¹ß»ýÇÔ.
+    - í¬ë©§ì¸ìž
+        - %%, %p, %d, %c, %u, %x, %s, %n(ì“°ì¸ ì´ ë°”ì´íŠ¸ ìˆ˜), %f, %lf
+    - +í¬ë©§ìŠ¤íŠ¸ë§ ê³µê²©
+        - í”„ë¡œê·¸ëž¨ì— ìž…ë ¥ëœ ë¬¸ìžì—´ ë°ì´í„°ê°€ ëª…ë ¹ìœ¼ë¡œ í•´ì„ë  ë•Œ ë°œìƒ. ê³µê²©ìžëŠ” ì½”ë“œë¥¼ ì‹¤í–‰í•˜ê±°ë‚˜ ìŠ¤íƒ ë©”ëª¨ë¦¬ ì¼ë¶€ë¥¼ ì½ê±°ë‚˜ ì‹¤í–‰ì¤‘ì¸ í”„ë¡œê·¸ëž¨ì— segementation fault ë°œìƒì‹œì¼œ ì‹œìŠ¤í…œì— ì˜ë„ë˜ì§€ ì•Šì€ ë™ìž‘ ì¼ìœ¼í‚´.
+        - `printf("%s",argv[1]);`ì€ ì•ˆì „í•˜ì§€ë§Œ, `printf(argv[1])`ëŠ” ìœ„í—˜í•˜ë‹¤.
+            - ./example 'Hello world %s%s%s%s%s%s'ë¥¼ ì‹¤í–‰í•˜ë©´, ë¬¸ìžì—´ í¬ì¸í„°ì— ëŒ€í•œ ì°¸ì¡°ë¡œ íŒŒì‹±ë˜ë¯€ë¡œ ëª¨ë“  %së¥¼ ë¬¸ìžì—´ì— ëŒ€í•œ í¬ì¸í„°ë¡œ í•´ì„í•œë‹¤. íŠ¹ì • ì‹œì ì—ì„œ ìž˜ëª»ëœ ì£¼ì†Œì— ë„ë‹¬í•˜ì—¬ ì•¡ì„¸ìŠ¤ë¥¼ ì‹œë„í•˜ë©´ í”„ë¡œê·¸ëž¨ì´ ì¤‘ë‹¨ëœë‹¤.
+        - `snprintf(buf,sizeof buf, argv[1])` ìœ„í—˜
+            - `./example 'Hello World %s%s%s%s%s%s`ë¥¼ ì‹¤í–‰í•˜ë©´ ì•±í¬ëž˜ì‹œê°€ ë°œìƒí•¨.
         
-2. **ÀÌ½ºÄÉÀÌÇÁ½ÃÄö½º¶õ?**
-- ÇÁ·Î±×·¡¹Ö ¾ð¾î Æ¯¼º»ó Ç¥Çö ÇÒ ¼ö ¾ø´Â ±â´É, ¹®ÀÚ¸¦ Ç¥Çö
-- ÄÄÇ»ÅÍ¸¦ Á¦¾îÇÏ´Â ¸ñÀûÀ¸·Î »ç¿ëµÇ´Â Æ¯¼ö ¹®ÀÚ
-- `\a`(°æ°í), `\n`, `\t`(¼öÆòÅÇ), `\v`(¼öÁ÷ÅÇ), `\b`(¹é½ºÆäÀÌ½º), `\f`(Æû ÇÇµå), `\r`(Ä³¸®Áö ¸®ÅÏ), `\\`, `\'`, `\"`, `\ooo`(8Áø¼ö ¼ýÀÚ¸¦ »ç¿ëÇÏ¿© ASCII ÄÚµåÀÇ ¹®ÀÚ Ç¥Çö), `\xhh`(16Áø¼ö ¼ýÀÚ¸¦ »ç¿ëÇÏ¿© ASCII ÄÚµåÀÇ ¹®ÀÚ Ç¥Çö)
-3. **C¾ð¾îÀÇ Ãâ·ÂÇÔ¼ö**
-- `printf("Ãâ·Â³»¿ë %d", integer);`
-- `putchar(c)` : È­¸é¿¡ ÇÑ ¹®ÀÚ¾¿ Ãâ·Â, ÆÄ¶ó¹ÌÅÍÀÇ ASCII °ª¿¡ ÇØ´çÇÏ´Â ¹®ÀÚ Ãâ·Â
-- `puts(str)` : ¹®ÀÚ¿­À» È­¸é¿¡ Ãâ·Â, \0À» ¸¸³ª¸é \nÀ¸·Î ¹Ù²Ù¾î Ãâ·ÂÇÔ.
-- `fputc(ch,FILE *stream)` : ÁöÁ¤µÈ ½ºÆ®¸²¿¡ ¹®ÀÚ ÇÏ³ª¸¦ Ãâ·Â(ÀúÀå)ÇÏ´Â ÇÔ¼ö
-- `fputs(const char* restrict s, FILE * restrict stream)` : ÁöÁ¤µÈ ½ºÆ®¸²¿¡ ¹®ÀÚ¿­À» Ãâ·Â(ÀúÀå)ÇÏ´Â ÇÔ¼ö
-    - Ã¹¹øÂ° ÀÎ¼ö´Â ¾²°íÀÚÇÏ´Â ¹®ÀÚ¿­ÀÇ ÁÖ¼Ò, µÎ¹øÂ° ÀÎ¼ö´Â ½ºÆ®¸²À» °áÁ¤ÇÑ FILE ±¸Á¶Ã¼ º¯¼öÆ÷ÀÎÅÍ, Àü´ÞµÈ ½ºÆ®¸²ÀÌ stdoutÀÌ¸é ¸ð´ÏÅÍ¿¡ Ãâ·Â, ÆÄÀÏÀÌ¸é ¹®ÀÚ¿­À» ÇØ´çÆÄÀÏ¿¡ ÀúÀå
-- `fprintf(FILE * restrict stream, const char * restrict format,...)` : ÁöÁ¤µÈ ½ºÆ®¸²¿¡ ´Ù¾çÇÑ ¼­½Ä º¯È¯ ¹®ÀÚ¸¦ ÀÌ¿ëÇÏ¿© ¹®ÀÚ¿­À» Ãâ·Â(ÀúÀå)ÇÏ´Â ÇÔ¼ö
-    - Ã¹¹øÂ° ÀÎ¼ö´Â ½ºÆ®¸²À» °áÁ¤ÇÑ FILE ±¸Á¶Ã¼ º¯¼ö Æ÷ÀÎÅÍ, µÎ¹øÂ° º¯¼ö´Â ÀÎ¼ö¸¦ Ãâ·ÂÇÒ ¹®ÀÚ¿­ÀÇ ¼­½Ä
-    - ¼º°ø½Ã ÀúÀåÇÑ ¹®ÀÚ¿­ÀÇ Å©±â¸¦ ¹ÙÀÌÆ® ´ÜÀ§·Î ¹ÝÈ¯, ½ÇÆÐ½Ã À½¼ö ¹ÝÈ¯
-4. **C¾ð¾îÀÇ ÀÔ·ÂÇÔ¼ö**
+2. **ì´ìŠ¤ì¼€ì´í”„ì‹œí€€ìŠ¤ëž€?**
+- í”„ë¡œê·¸ëž˜ë° ì–¸ì–´ íŠ¹ì„±ìƒ í‘œí˜„ í•  ìˆ˜ ì—†ëŠ” ê¸°ëŠ¥, ë¬¸ìžë¥¼ í‘œí˜„
+- ì»´í“¨í„°ë¥¼ ì œì–´í•˜ëŠ” ëª©ì ìœ¼ë¡œ ì‚¬ìš©ë˜ëŠ” íŠ¹ìˆ˜ ë¬¸ìž
+- `\a`(ê²½ê³ ), `\n`, `\t`(ìˆ˜í‰íƒ­), `\v`(ìˆ˜ì§íƒ­), `\b`(ë°±ìŠ¤íŽ˜ì´ìŠ¤), `\f`(í¼ í”¼ë“œ), `\r`(ìºë¦¬ì§€ ë¦¬í„´), `\\`, `\'`, `\"`, `\ooo`(8ì§„ìˆ˜ ìˆ«ìžë¥¼ ì‚¬ìš©í•˜ì—¬ ASCII ì½”ë“œì˜ ë¬¸ìž í‘œí˜„), `\xhh`(16ì§„ìˆ˜ ìˆ«ìžë¥¼ ì‚¬ìš©í•˜ì—¬ ASCII ì½”ë“œì˜ ë¬¸ìž í‘œí˜„)
+3. **Cì–¸ì–´ì˜ ì¶œë ¥í•¨ìˆ˜**
+- `printf("ì¶œë ¥ë‚´ìš© %d", integer);`
+- `putchar(c)` : í™”ë©´ì— í•œ ë¬¸ìžì”© ì¶œë ¥, íŒŒë¼ë¯¸í„°ì˜ ASCII ê°’ì— í•´ë‹¹í•˜ëŠ” ë¬¸ìž ì¶œë ¥
+- `puts(str)` : ë¬¸ìžì—´ì„ í™”ë©´ì— ì¶œë ¥, \0ì„ ë§Œë‚˜ë©´ \nìœ¼ë¡œ ë°”ê¾¸ì–´ ì¶œë ¥í•¨.
+- `fputc(ch,FILE *stream)` : ì§€ì •ëœ ìŠ¤íŠ¸ë¦¼ì— ë¬¸ìž í•˜ë‚˜ë¥¼ ì¶œë ¥(ì €ìž¥)í•˜ëŠ” í•¨ìˆ˜
+- `fputs(const char* restrict s, FILE * restrict stream)` : ì§€ì •ëœ ìŠ¤íŠ¸ë¦¼ì— ë¬¸ìžì—´ì„ ì¶œë ¥(ì €ìž¥)í•˜ëŠ” í•¨ìˆ˜
+    - ì²«ë²ˆì§¸ ì¸ìˆ˜ëŠ” ì“°ê³ ìží•˜ëŠ” ë¬¸ìžì—´ì˜ ì£¼ì†Œ, ë‘ë²ˆì§¸ ì¸ìˆ˜ëŠ” ìŠ¤íŠ¸ë¦¼ì„ ê²°ì •í•œ FILE êµ¬ì¡°ì²´ ë³€ìˆ˜í¬ì¸í„°, ì „ë‹¬ëœ ìŠ¤íŠ¸ë¦¼ì´ stdoutì´ë©´ ëª¨ë‹ˆí„°ì— ì¶œë ¥, íŒŒì¼ì´ë©´ ë¬¸ìžì—´ì„ í•´ë‹¹íŒŒì¼ì— ì €ìž¥
+- `fprintf(FILE * restrict stream, const char * restrict format,...)` : ì§€ì •ëœ ìŠ¤íŠ¸ë¦¼ì— ë‹¤ì–‘í•œ ì„œì‹ ë³€í™˜ ë¬¸ìžë¥¼ ì´ìš©í•˜ì—¬ ë¬¸ìžì—´ì„ ì¶œë ¥(ì €ìž¥)í•˜ëŠ” í•¨ìˆ˜
+    - ì²«ë²ˆì§¸ ì¸ìˆ˜ëŠ” ìŠ¤íŠ¸ë¦¼ì„ ê²°ì •í•œ FILE êµ¬ì¡°ì²´ ë³€ìˆ˜ í¬ì¸í„°, ë‘ë²ˆì§¸ ë³€ìˆ˜ëŠ” ì¸ìˆ˜ë¥¼ ì¶œë ¥í•  ë¬¸ìžì—´ì˜ ì„œì‹
+    - ì„±ê³µì‹œ ì €ìž¥í•œ ë¬¸ìžì—´ì˜ í¬ê¸°ë¥¼ ë°”ì´íŠ¸ ë‹¨ìœ„ë¡œ ë°˜í™˜, ì‹¤íŒ¨ì‹œ ìŒìˆ˜ ë°˜í™˜
+4. **Cì–¸ì–´ì˜ ìž…ë ¥í•¨ìˆ˜**
 - `scanf("%d %f",&interger, &gloat);`
-- `c = getchar()` : Å°º¸µå·ÎºÎÅÍ ÇÑ¹ø¿¡ ÇÑ ¹®ÀÚ¾¿ ÀÐ¾îµéÀÌ´Â ÇÔ¼ö, <ins>¼ýÀÚ¸¦ ÀÔ·Â¹ÞÀ»½Ã, µÎÀÚ¸® ÀÌ»ó ¼ýÀÚ¸¦ ¹ÞÀ» ¼ö ¾øÀ½</ins>
-- `gets(str)` : Å°º¸µå·ÎºÎÅÍ ¹®ÀÚ¿­À» ÀÐ¾îµé¿© ¹®ÀÚ¿­ Æ÷ÀÎÅÍ°¡ °¡¸®Å°´Â Àå¼Ò¿¡ ±â¾ï½ÃÅ°¸ç, ±× Æ÷ÀÎÅÍ¸¦ µÇµ¹·ÁÁØ´Ù.spaceµµ °ø¹é ¹®ÀÚ¿­¿¡ Æ÷ÇÔ½ÃÅ´.
-- `fgetc(FILE *stream)` : ÁöÁ¤µÈ ½ºÆ®¸²À¸·ÎºÎÅÍ ÇÏ³ªÀÇ ¹®ÀÚ¸¦ ÀÐ¾îµéÀÌ´Â ÇÔ¼ö, ¼º°øÇÏ¸é ÀÐÀº ¹®ÀÚ¸¦ ¹ÝÈ¯ÇÏ°í, ÆÄÀÏ³¡¿¡ µµ´ÞÇÏ¸é EOF ¹ÝÈ¯.
-- `fgets(str, n, FILE* restrict stream)` : ÁöÁ¤µÈ ½ºÆ®¸²À¸·ÎºÎÅÍ ¹®ÀÚ¿­À» ÀÐ¾îµéÀÌ´Â ÇÔ¼ö. 
-    - stream¿¡¼­ ¹®ÀÚ¿­À» ¹Þ´Â´Ù.
-    - (n-1)°³ÀÇ ¹®ÀÚ¸¦ ÀÔ·Â ¹ÞÀ»¶§ ±îÁö³ª, °³Çà¹®ÀÚ³ª ÆÄÀÏ³¡¿¡ µµ´ÞÇÒ¶§±îÁö ÀÔ·ÂÀ» ¹Þ¾Æ¼­ CÇü½ÄÀÇ ¹®ÀÚ¿­·Î ÀúÀå. 
-    - ¼º°øÀûÀ¸·Î ÀÐ¾úÀ¸¸é strÀ» ¸®ÅÏ, ½ÇÆÐÇÏ¸é NULL ¸®ÅÏ
-- `fscanf(FILE * restrict stream, const char* restrict format,...)` : ÁöÁ¤µÈ ½ºÆ®¸²À¸·ÎºÎÅÍ ´Ù¾çÇÑ ¼­½Ä º¯È¯ ¹®ÀÚ¸¦ ÀÌ¿ëÇÏ¿© ¹®ÀÚ¿­À» ÀÐ¾îµéÀÌ´Â ÇÔ¼ö.
-    - Ã¹¹øÂ° ÀÎ¼ö´Â ½ºÆ®¸²À» °áÁ¤ÇÑ FILE ±¸Á¶Ã¼ º¯¼ö Æ÷ÀÎÅÍ, µÎ¹øÂ° ÀÎ¼ö´Â ÀÐ¾îµéÀÏ ¹®ÀÚ¿­ÀÇ ¼­½Ä
-    - ¼º°øÇÏ¸é ÀÐ¾îµéÀÎ º¯¼öÀÇ °³¼ö¸¦ ¹ÝÈ¯ÇÏ°í ½ÇÆÐ½Ã EOF ¹ÝÈ¯
+- `c = getchar()` : í‚¤ë³´ë“œë¡œë¶€í„° í•œë²ˆì— í•œ ë¬¸ìžì”© ì½ì–´ë“¤ì´ëŠ” í•¨ìˆ˜, <ins>ìˆ«ìžë¥¼ ìž…ë ¥ë°›ì„ì‹œ, ë‘ìžë¦¬ ì´ìƒ ìˆ«ìžë¥¼ ë°›ì„ ìˆ˜ ì—†ìŒ</ins>
+- `gets(str)` : í‚¤ë³´ë“œë¡œë¶€í„° ë¬¸ìžì—´ì„ ì½ì–´ë“¤ì—¬ ë¬¸ìžì—´ í¬ì¸í„°ê°€ ê°€ë¦¬í‚¤ëŠ” ìž¥ì†Œì— ê¸°ì–µì‹œí‚¤ë©°, ê·¸ í¬ì¸í„°ë¥¼ ë˜ëŒë ¤ì¤€ë‹¤.spaceë„ ê³µë°± ë¬¸ìžì—´ì— í¬í•¨ì‹œí‚´.
+- `fgetc(FILE *stream)` : ì§€ì •ëœ ìŠ¤íŠ¸ë¦¼ìœ¼ë¡œë¶€í„° í•˜ë‚˜ì˜ ë¬¸ìžë¥¼ ì½ì–´ë“¤ì´ëŠ” í•¨ìˆ˜, ì„±ê³µí•˜ë©´ ì½ì€ ë¬¸ìžë¥¼ ë°˜í™˜í•˜ê³ , íŒŒì¼ëì— ë„ë‹¬í•˜ë©´ EOF ë°˜í™˜.
+- `fgets(str, n, FILE* restrict stream)` : ì§€ì •ëœ ìŠ¤íŠ¸ë¦¼ìœ¼ë¡œë¶€í„° ë¬¸ìžì—´ì„ ì½ì–´ë“¤ì´ëŠ” í•¨ìˆ˜. 
+    - streamì—ì„œ ë¬¸ìžì—´ì„ ë°›ëŠ”ë‹¤.
+    - (n-1)ê°œì˜ ë¬¸ìžë¥¼ ìž…ë ¥ ë°›ì„ë•Œ ê¹Œì§€ë‚˜, ê°œí–‰ë¬¸ìžë‚˜ íŒŒì¼ëì— ë„ë‹¬í• ë•Œê¹Œì§€ ìž…ë ¥ì„ ë°›ì•„ì„œ Cí˜•ì‹ì˜ ë¬¸ìžì—´ë¡œ ì €ìž¥. 
+    - ì„±ê³µì ìœ¼ë¡œ ì½ì—ˆìœ¼ë©´ strì„ ë¦¬í„´, ì‹¤íŒ¨í•˜ë©´ NULL ë¦¬í„´
+- `fscanf(FILE * restrict stream, const char* restrict format,...)` : ì§€ì •ëœ ìŠ¤íŠ¸ë¦¼ìœ¼ë¡œë¶€í„° ë‹¤ì–‘í•œ ì„œì‹ ë³€í™˜ ë¬¸ìžë¥¼ ì´ìš©í•˜ì—¬ ë¬¸ìžì—´ì„ ì½ì–´ë“¤ì´ëŠ” í•¨ìˆ˜.
+    - ì²«ë²ˆì§¸ ì¸ìˆ˜ëŠ” ìŠ¤íŠ¸ë¦¼ì„ ê²°ì •í•œ FILE êµ¬ì¡°ì²´ ë³€ìˆ˜ í¬ì¸í„°, ë‘ë²ˆì§¸ ì¸ìˆ˜ëŠ” ì½ì–´ë“¤ì¼ ë¬¸ìžì—´ì˜ ì„œì‹
+    - ì„±ê³µí•˜ë©´ ì½ì–´ë“¤ì¸ ë³€ìˆ˜ì˜ ê°œìˆ˜ë¥¼ ë°˜í™˜í•˜ê³  ì‹¤íŒ¨ì‹œ EOF ë°˜í™˜
 
-### ? ÄÚµåºÐ¼®
+### ðŸ“„ ì½”ë“œë¶„ì„
 ```c
 #include <stdio.h>
 
@@ -54,47 +54,47 @@ int main(){
 	printf("\na\t:\t%.3f\tb\t:\t%d\n",a, b);
 
 	puts("Is a bigger than b?")
-	//ÀÌ¿Ü¿¡µµ ¸¹Àº ÀÔÃâ·ÂÇÔ¼ö°¡ Á¸ÀçÇÕ´Ï´Ù. °øºÎÇÏ°í ³Ñ¾î°©½Ã´Ù!
+	//ì´ì™¸ì—ë„ ë§Žì€ ìž…ì¶œë ¥í•¨ìˆ˜ê°€ ì¡´ìž¬í•©ë‹ˆë‹¤. ê³µë¶€í•˜ê³  ë„˜ì–´ê°‘ì‹œë‹¤!
 }
 ```
-- ¿¹»ó.. (O)
+- ì˜ˆìƒ.. (O)
     ```
 
-    a   :   10.123  b   :   ÀÔ·Â°ª
+    a   :   10.123  b   :   ìž…ë ¥ê°’
 
     ```
 
-## ? Challenge !
-1. **ÀÔ·Â¹ÞÀº °ª Ãâ·ÂÇÏ±â**
-    1. ¼ýÀÚ 1°³¸¦ ÀÔ·Â¹Þ´Â´Ù.
-    2. ÇØ´ç ¼ýÀÚ¸¦ Ãâ·ÂÇÑ´Ù.
+## ðŸ”¥ Challenge !
+1. **ìž…ë ¥ë°›ì€ ê°’ ì¶œë ¥í•˜ê¸°**
+    1. ìˆ«ìž 1ê°œë¥¼ ìž…ë ¥ë°›ëŠ”ë‹¤.
+    2. í•´ë‹¹ ìˆ«ìžë¥¼ ì¶œë ¥í•œë‹¤.
     
-        //º¼µå°¡ »ç¿ëÀÚ ÀÔ·Â°ªÀÔ´Ï´Ù.
+        //ë³¼ë“œê°€ ì‚¬ìš©ìž ìž…ë ¥ê°’ìž…ë‹ˆë‹¤.
     
         ex)
-        ¼ýÀÚ¸¦ ÀÔ·ÂÇØÁÖ¼¼¿ä. : 3
+        ìˆ«ìžë¥¼ ìž…ë ¥í•´ì£¼ì„¸ìš”. : 3
 
-        ÀÔ·Â¹ÞÀº ¼ýÀÚ : 3
+        ìž…ë ¥ë°›ì€ ìˆ«ìž : 3
         ```c
         #include <stdio.h>
         int main(){
             int n;
     
-        printf("¼ýÀÚ¸¦ ÀÔ·ÂÇØÁÖ¼¼¿ä.:");
+        printf("ìˆ«ìžë¥¼ ìž…ë ¥í•´ì£¼ì„¸ìš”.:");
         scanf("%d",&n);
-        printf("ÀÔ·Â ¹ÞÀº ¼ýÀÚ:%d",n);
+        printf("ìž…ë ¥ ë°›ì€ ìˆ«ìž:%d",n);
         }
         ```
-2. **ÀÔ·Â¹ÞÀº °ª ¿¬»ê Ãâ·ÂÇÏ±â**
-    1. ¼ýÀÚ 2°³¸¦ ÀÔ·Â¹Þ´Â´Ù.
-    2. ¼ýÀÚ 2°³ÀÇ ÇÕ, Â÷, °ö, ¸òÀ» Ãâ·ÂÇÑ´Ù.
-        //º¼µå°¡ »ç¿ëÀÚ ÀÔ·Â°ªÀÔ´Ï´Ù.
+2. **ìž…ë ¥ë°›ì€ ê°’ ì—°ì‚° ì¶œë ¥í•˜ê¸°**
+    1. ìˆ«ìž 2ê°œë¥¼ ìž…ë ¥ë°›ëŠ”ë‹¤.
+    2. ìˆ«ìž 2ê°œì˜ í•©, ì°¨, ê³±, ëª«ì„ ì¶œë ¥í•œë‹¤.
+        //ë³¼ë“œê°€ ì‚¬ìš©ìž ìž…ë ¥ê°’ìž…ë‹ˆë‹¤.
 
         ex)
 
-        ¼ýÀÚ µÎ°³¸¦ ÀÔ·ÂÇØÁÖ¼¼¿ä. : 3 10
+        ìˆ«ìž ë‘ê°œë¥¼ ìž…ë ¥í•´ì£¼ì„¸ìš”. : 3 10
 
-        ÀÔ·Â¹ÞÀº ¼ýÀÚ : 3 10
+        ìž…ë ¥ë°›ì€ ìˆ«ìž : 3 10
 
         3 + 10 = 13
 
@@ -108,9 +108,9 @@ int main(){
         int main(){
 
             int n,m;
-            printf("¼ýÀÚ µÎ°³¸¦ ÀÔ·ÂÇØÁÖ¼¼¿ä.:");
+            printf("ìˆ«ìž ë‘ê°œë¥¼ ìž…ë ¥í•´ì£¼ì„¸ìš”.:");
             scanf("%d %d",&n,&m);
-            printf("ÀÔ·Â¹ÞÀº ¼ýÀÚ:%d %d",n,m);
+            printf("ìž…ë ¥ë°›ì€ ìˆ«ìž:%d %d",n,m);
             printf("%d + %d = %d",n,m,n+m);
             printf("%d - %d = %d",n,m,n-m);
             printf("%d * %d = %d",n,m,n*m);

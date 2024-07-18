@@ -47,7 +47,7 @@ int numArr[3][4] = {
     	};
     ```
 ![alt text](img/image-3.png)
-## 📜 코드분석
+## 📄 코드분석
 ```c
 #include <stdio.h>
 
