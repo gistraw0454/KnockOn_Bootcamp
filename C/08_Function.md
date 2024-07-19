@@ -139,6 +139,9 @@ int main() {
 }
 
 ```
+- add함수를 호출하여, 인자 5,10을 매개변수 a,b에 대입하여 함수를 수행한다.
+- a+b 인 15를 리턴하고, 그 값을 result에 저장한다.
+- The result is 15가 출력된다.
 ```c
 // 아래의 코드의 실행 결과를 예상하여 봅시다
 #include <stdio.h>
@@ -155,6 +158,13 @@ int main() {
 }
 
 ```
+- Hello, World! 출력후 print_hello(4) 호출
+- Hello, World! 출력후 print_hello(3) 호출
+- Hello, World! 출력후 print_hello(2) 호출
+- Hello, World! 출력후 print_hello(1) 호출
+- Hello, World! 출력후 print_hello(0) 호출
+- return 으로 빠져나간다.
+- 따라서 총 5번의 Hello, World!가 출력이되고 함수를 나가게 된다.
 ```c
 // 아래의 코드를 완성하여 봅시다
 #include <stdio.h>
@@ -168,7 +178,7 @@ double sub(double a, double b) {
 }
 
 double mul(double a, double b) {
-	return a + b;
+	return a * b;
 }
 
 double dvd(double a, double b) {
@@ -179,7 +189,7 @@ int main() {
 	int select;
 	int a, b;
 	//함수포인터 선언부
-
+    
 	printf("===============\\n");
 	printf("0. 덧셈\\n");
 	printf("1. 뺄셈\\n");
@@ -190,16 +200,39 @@ int main() {
 
 	printf("메뉴를 선택하시오 : ");
 	scanf("%d", &select);
-
+    
 	printf("2개의 정수를 입력하시오 : ");
 	scanf("%d %d", &a, &b);
 
 	printf("연산결과 = %f\\n", pf[select](a, b));
 }
-
 ```
+- `double (*pf[4])(double, double) = {add, sub, mul, dvd};` 를 추가해준다.
 ## 🔥 Challenge !
 1. **1번째 예시에서 뺄셈 동작을 하는 sub() 구현**
+```c
+int sub(int a, int b) {
+    return a - b;
+}
+```
 2. **2번째 예시에서 재귀함수의 동작 과정 및 실행결과 예상하기**
 3. **3번째 예시에서 함수포인터를 이용하여 프로그램 완성하기**
 4. **가변인자를 이용하여 n개 정수의 합을 구하는 함수 만들기**
+```c
+#include <stdio.h>
+#include <stdarg.h> 
+
+int sum(int args, ...)    
+{
+    va_list ap; 
+    int sum=0;
+    va_start(ap, args);  
+    for (int i = 0; i < args; i++)   
+    {
+        sum += va_arg(ap, int);  
+    }
+    va_end(ap);   
+
+    return sum;    
+}
+```
