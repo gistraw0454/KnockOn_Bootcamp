@@ -129,5 +129,232 @@ int main() {
     return 0;
 }
 ```
-
+- find_char 함수에 str의 주소와, c를 인자로 전달한다.
+- pos = 4
+- The character 'o' found at position 4로 출력된다.
 ## 🔥 Challenge !!
+- **strcat(), strcpy(), strcmp() 등등 기본 문자열 함수를 구현해보기 (string 헤더 include 금지!!)**
+
+- myStrcat()
+1. 두 단어를 입력받는다. 
+2. 두 단어를 합친 결과를 출력한다.
+
+    ex)
+
+    Input first word : Knock
+
+    Input second word : On!
+
+    KnockOn!
+```c
+#include <stdio.h>
+
+// 두단어를 입력받고, 두단어를 합친 결과를 출력한다.
+char* myStrcat(char* str1, char* str2){
+    int len=0;
+    while (str1[len] != '\0') {
+        len++;
+    }
+
+    int i=0;
+    for (i=0; str2[i];i++){
+        str1[len+i]= str2[i];
+    }
+    str1[len+i]='\0';
+    return str1;
+}
+
+int main(){
+    char str1[200];
+    char str2[100];
+    scanf("%99s",str1);
+    scanf("%99s",str2);
+    printf("%s",myStrcat(str1,str2));
+}
+```
+
+- myStrcpy()
+1. 단어를 입력받는다.
+2. 다른 배열에 문자열을 복사한 후 복사본을 출력한다.
+
+    ex)
+
+    Input word : KnockOn!
+
+    KnockOn!
+```c
+#include <stdio.h>
+
+// 단어를 입력받고 다른배열의 문자열을 복사한후 복사본을 출력한다.
+void myStrcpy(char* str1, char* str2){
+    int i=0;
+    while(str1[i]){
+        str2[i]=str1[i];
+        i++;
+    }
+}
+
+int main(){
+    char str1[100];
+    char str2[100];
+    scanf("%99s",str1);
+    myStrcpy(str1,str2);
+    printf("%s",str2);
+}
+```
+
+- myStrcmp()
+1. 두 단어를 입력받는다.
+2. 두 단어의 비교 결과를 출력한다.
+
+    ex)
+
+    Input first word : Knock
+
+    Input second word : On!
+
+    Nope..
+```c
+#include <stdio.h>
+
+// 두단어를 입력받고 비교결과를 출력한다.
+int myStrcmp(char* str1, char* str2){
+    int i=0;
+    int result = 0;
+    while(str1[i]){
+        if(str2[i]!=str1[i]){
+            result = 1;
+            break;
+        }
+        i++;
+    }
+    return result;
+}
+
+int main(){
+    char str1[100];
+    char str2[100];
+    scanf("%99s",str1);
+    scanf("%99s",str2);
+    if (!myStrcmp(str1,str2)) printf("same!");
+    else printf("Nope..");
+}
+```
+- **추가적인 문자열 함수 만들어 보기**
+    - void myNoSpace(char* str) {}
+    1. 문장을 입력받는다.
+    2. 문자열 사이 공백을 제거한 후 출력한다.
+    
+    ex)
+    
+    Input sentence : Hello Knock On!
+    
+    HelloKnockOn!
+    ```c
+    #include <stdio.h>
+    // 공백없애기
+    void myNoSpace(char* str){
+        int i=0;
+        int j=0;
+        char str2[100];
+        while (str[i] != '\0') {
+            if (str[i] != ' ') {
+                str2[j] = str[i];
+                j++;
+            }
+            i++;
+        }
+        str2[j] = '\0';
+        printf("%s", str2);
+    }
+
+    int main(){
+        char str1[100];
+        scanf("%99[^\n]",str1); //공백포함 문자열을 받아 str1에 저장 !!!!!!!!
+        myNoSpace(str1);
+    }
+    ```
+    - int myCountWord(char* str, char* target) {}
+    1. 문장을 입력받는다.
+    2. 문장에서 2번째 인자로 넘어온 단어가 몇 번 나왔는지 출력한다.
+    
+    ex)
+    
+    Input sentence : Come on, come for corn. No onion, no corn, none for you or me
+    
+    Input word : on
+    
+    1
+    
+    Input word : no
+    
+    2
+    
+    Input word : om
+    
+    0
+
+    힌트) 대소문자는 구분하지 않으며, 입력된 단어가 포함되더라도 정확히 해당 단어가 아니라면 세지 않는다.
+    ```c
+    #include <stdio.h>
+
+    // 글자인지
+    int isWordBoundary(char c) {
+        return c == ' ' || c == '.' || c == ',' || c == '!' || c == '?' || c == '\0';
+    }
+
+    // 소문자로 바꾸기
+    char toLower(char c) {
+        if (c >= 'A' && c <= 'Z') {
+            return c + ('a' - 'A');
+        }
+        return c;
+    }
+
+    int myCountWord(char* str, char* target) {
+        int len = 0;
+        // target 길이 구하기
+        while (target[len]) {
+            target[len] = toLower(target[len]);
+            len++;
+        }
+
+        int i = 0;
+        int count = 0;
+
+        // Loop through the main string
+        while (str[i]) {
+            // 단어의시작부분이면서, target의 시작부분과 같으면
+            if ((i == 0 || isWordBoundary(str[i-1])) && toLower(str[i]) == target[0]) {
+                int isSame = 1;
+                for (int j = 0; j < len; j++) {
+                    if (toLower(str[i + j]) != target[j]) {
+                        isSame = 0;
+                        break;
+                    }
+                }
+                //같으면서 단어의 끝이면
+                if (isSame && isWordBoundary(str[i + len])) {
+                    count++;
+                    i += (len - 1);
+                }
+            }
+            i++;
+        }
+        return count;
+    }
+
+    int main() {
+        char str1[100];
+        char target[100];
+
+        scanf("%99[^\n]", str1); // Read a line including spaces
+
+        scanf("%99s", target);
+
+        printf("%d\n", myCountWord(str1, target));
+
+        return 0;
+    }
+
+    ```
