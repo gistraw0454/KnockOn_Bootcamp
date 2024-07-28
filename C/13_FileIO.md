@@ -228,5 +228,69 @@ int main() {
 ```
 ## 🔥 Challenge !!
 1. **1번째 예시에서 다른 모드로 파일을 열어보기 (예: "a", "r+", "w+")**
+-  모두 같은 결과를 가져온다. 전부 쓰기 기능을 포함하고있음.
+- a: 추가해서 쓰기 모드
+- r+ : 읽고 쓰기 모드
+- w+ : 쓰고 읽기 모드
 2. **2번째 예시에서 파일 전체를 읽어보기 (while문과 feof 함수 사용)**
+```c
+// 모든 줄을 읽을 수 있도록 코드를 수정하여 봅시다.
+#include <stdio.h>
+
+int main() {
+    FILE *fp;
+    char str[20];
+
+    fp = fopen("test.txt", "r");
+
+    if(fp == NULL) {
+        printf("파일 열기 실패");
+        return 0;
+    }
+
+    while(!feof(fp)){
+        fscanf(fp, "%s", str);
+        printf("%s\n", str);
+
+    }
+    // while(fscanf(fp, "%s", str)!=EOF){
+    //     printf("%s\n", str);
+    // }
+    fclose(fp);
+
+    return 0;
+}
+```
 3. **3번째 예시에서 fseek()를 이용하여 3번 반복하여 읽어보기**
+```c
+// 다음과 같은 코드는 파일 위치 지시자를 이용한 예시입니다.
+#include <stdio.h>
+
+int main() {
+    FILE *fp;
+    char str[20];
+
+    fp = fopen("test.txt", "r+");
+
+    if(fp == NULL) {
+        printf("파일 열기 실패");
+        return 0;
+    }
+
+    fprintf(fp, "Hello, File!");
+
+    for (int i=0; i<3;i++){
+    fseek(fp, 0, SEEK_SET);
+
+    fscanf(fp, "%s", str);
+
+    printf("%s ", str);
+    fscanf(fp, "%s", str);
+
+    printf("%s\n", str);
+    }
+    fclose(fp);
+
+    return 0;
+}
+```
