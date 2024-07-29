@@ -22,6 +22,10 @@
 - 초기화
     ```c
     struct person man={"김허수", "010-1144-8844", 25};
+ 
+    //Point createPoint(int x, int y) { Point p; p.x = x; p.y = y; return p; }  //쉬운 방법
+    Point createPoint(int x, int y) { return (Point){x, y}; }   // 이렇게도 가능하다. Point(x,y) 는 불가능. C++에서는 구조체자체가 생성자를 갖기 때문에 가능
+    //Point createPoint(int x, int y) { return new Point{x, y}; } 이건 불가능. new는 동적으로 객체를 생성하는건데, Point*가 반환타입이 되어야한다.
     ```
     - 초기화 과정에선 문자열 저장을 위해 strcpy함수를 호출하지 않아도된다.
     - 대입할때는 strcpy를 통해 문자열을 저장해줘야한다..!!
@@ -132,7 +136,8 @@ int equal(struct student* s1, struct student* s2){
 ![alt text](image-1.png)
 - 자료형의 크기가 가장 큰것의 배수주소에 변수가 할당된다.
 - 빈공간을 패딩이라한다.
-
+- 시작주소와 끝나는주소는 자료형이 가장큰것의 배수주소여야한다.
+- char char +2 int char char +2 이런식으로.. 패딩이 생김.
 
 >구조체는 여러 개의 다른 자료형의 변수들을 하나의 이름으로 묶어서 관리할 수 있는 고급 자료형입니다.
 >구조체를 이용하면 서로 다른 자료형의 데이터를 묶어서 하나의 덩어리로 처리할 수 있습니다.
