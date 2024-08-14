@@ -9,6 +9,7 @@ typedef struct Pokemon{
     char* type; //불, 물, 풀
     int damage; //최소 공격력 0~100 사이의 값이 랜덤으로 더해져 결정됨
     int hp; //최소 hp 0~150 사이의 값이 랜덤으로 더해져 결정됨
+    int currentHp;
 }Pokemon;
 
 
@@ -17,18 +18,20 @@ typedef struct Pokemon{
 typedef struct Trainer{
     Pokemon** pokemonList;
     int money;  //10000원 default
+    int ball;
+    int potion;
 }Trainer;
 
 //트레이너 도감에 포켓몬 추가
-void addPokemon(char* inputName, char *inputType, int inputDamage, int inputHp, Trainer* Trainer){
+void addPokemon(Pokemon* pokemon, Trainer* Trainer){
     Pokemon* newPokemon = malloc(sizeof(Pokemon));
     if (!pokemonNum) Trainer->pokemonList = malloc(sizeof(Pokemon*)*(pokemonNum+1));
     else Trainer->pokemonList = realloc(Trainer->pokemonList,sizeof(Pokemon*)*(pokemonNum)+1);
 
-    newPokemon->name = inputName;
-    newPokemon->type = inputType;
-    newPokemon->damage = inputDamage;
-    newPokemon->hp = inputHp;
+    newPokemon->name = pokemon->name;
+    newPokemon->type = pokemon->type;
+    newPokemon->damage = pokemon->damage+rand()%101;
+    newPokemon->hp = pokemon->hp+rand()%151;
 
     Trainer->pokemonList[pokemonNum] = newPokemon;
     pokemonNum++;
@@ -41,6 +44,29 @@ Pokemon* makePokemon(Pokemon* newpokemon){
     return newpokemon;
 }
 
+int gameClear(Trainer trainer){
+    for (int i=0; i<pokemonNum;i++){
+            trainer.pokemonList[i]->currentHp = trainer.pokemonList[i]->hp;
+            printf("%s\t%d\t%d\n",
+                trainer.pokemonList[i]->name, 
+                trainer.pokemonList[i]->currentHp, 
+                trainer.pokemonList[i]->hp);
+    }
+    printf("\n");
+    pritnf("포켓몬볼 x %d\n",trainer.ball);
+    printf("상처약 x %d\n",trainer.potion);
+    printf("\n");
+    pritnf("지갑 %d\n",trainer.money);
+    printf("===============================\n");
+    printf("게임을 재시작하겠습니까? (Y/N)\n>>");
+    while(1){
+        char answer;
+        if (answer=='Y') return 1;
+        else if (answer=='N') return 0;
+        else ; 
+    }
+
+}
 
 int main(){
     //포켓몬 도감 pokemon.txt로부터 불러오기
@@ -57,6 +83,8 @@ int main(){
         // 뚜꾸리 불 50 50
         // 주리비얀 풀 50 50
         // 수댕이 물 50 50
+
+    //포켓몬 도감 불러오기
     Pokemon* Pokedex;
     FILE * fp = fopen("pokemon.txt", "w");
     int totalnum=0;  // pokemon total num
@@ -65,7 +93,6 @@ int main(){
         printf("파일이 없습니다.");
         return 1;
     }
-
     else{
         fscanf("%d\n",&totalnum);
         Pokedex = (Pokemon*)malloc(sizeof(Pokemon)*totalnum);
@@ -112,14 +139,14 @@ int main(){
 
         switch(select){
             case 1: 
-                addPokemon("파이리","불",rand()%101,rand()%151,&trainer);
+                addPokemon(makePokemon(&Pokedex[0]),&trainer);
                 break;
             case 2:
-                addPokemon("이상해씨","풀",rand()%101,rand()%151,&trainer);
+                addPokemon(makePokemon(&Pokedex[1]),&trainer);
                 break;
             case 3:
             default:
-                addPokemon("꼬부기","물",rand()%101,rand()%151,&trainer);
+                addPokemon(makePokemon(&Pokedex[2]),&trainer);
                 break;
         }
         trainer.money = 10000;    
@@ -135,35 +162,125 @@ int main(){
             printf("===============================\n");
             printf("포켓몬을 탐색하는중 ");
             sleep(1000);
-            printf(".");
+            printf("...");
             sleep(1000);
-            printf(".");
+            printf("...");
             sleep(1000);
-            printf(".\n");
+            printf("...\n");
 
             //랜덤 포켓몬에게 랜덤 hp와 랜덤 damage를 준다.
             Pokemon *newPokemon = makePokemon(&Pokedex[rand()%12]);
-            
+            int myCurrentHp = trainer.pokemonList[0]->hp;
+            int yourCurrentHp = newPokemon->hp;
             printf("===============================\n");
             printf("									%s\n");
-            printf("									 %d/%d\n",newPokemon->hp,newPokemon->hp);
+            printf("									 %d/%d\n",yourCurrentHp,newPokemon->hp);
             printf("%s\n",trainer.pokemonList[0]->name);
-            printf("%d/%d\n",trainer.pokemonList[0]->hp,trainer.pokemonList[0]->hp);
+            printf("%d/%d\n",myCurrentHp,trainer.pokemonList[0]->hp);
             printf("===============================\n");
             pritnf("앗! 야생의 포켓몬이 나타났다!\n");
             pritnf("무엇을 해야할까?\n");
             pritnf("1. 공격 2. 가방열기 3. 도망치기\n>>");
             
+            scanf("%d",&select);
+
+            //공격
+            if (select==1){
+
+            }
+            //가방
+            else if (select==2){
+
+            }
+            //도망
+            else if (select==3){
+
+            }
+            else{
+                printf("잘못된 입력. 다시입력해주세요\n");
+            }
+            
+
         }
+        //저장
         else if (select==2){
             
         }
+        //상점
         else if (select==3){
+            while(1){
+                printf("===============================\n");
+                printf("상점                지갑 : %d원",trainer.money);
+                printf("1. 포켓몬볼 1000원\n");
+                printf("2. 상처약 500원\n");
+                printf("===============================\n");
+                printf("무엇을 구매할까? (나가기 0)\n>>");
 
+                scanf("%d",&select);
+
+                //나가기
+                if (select==0) break;
+                //포켓몬볼
+                else if (select==1){
+                    printf("포켓몬볼을 몇개 구매할까? (취소 -1)\n>>");
+                    int count=0;
+                    scanf("%d",&count);
+
+                    if (count==-1) continue;
+                    else if (trainer.money>=count*1000){
+                        trainer.money-= count*1000;
+                        trainer.ball +=count;
+                        printf("성공적으로 구매하였다! (잔액 %d원)",trainer.money);
+                    }
+                    else printf("잔액이 부족합니다\n");
+                }
+                //상처약
+                else if (select==2){
+                    printf("상처약을 몇개 구매할까? (취소 -1)\n>>");
+                    int count=0;
+                    scanf("%d",&count);
+
+                    if (count==-1) continue;
+                    else if (trainer.money>=count*500){
+                        trainer.money-= count*500;
+                        trainer.potion +=count;
+                        printf("성공적으로 구매하였다! (잔액 %d원)",trainer.money);
+                    }
+                    else printf("잔액이 부족합니다\n");
+                }
+                else{
+                    printf("잘못된 입력. 다시입력해주세요\n");
+                }  
+            }
         }
+
+        //포켓몬센터
         else if (select==4){
-
+            printf("===============================\n");
+            printf("포켓몬을 치료하는 중입니다");
+            sleep(1000);
+            printf("...");
+            sleep(1000);
+            printf("...");
+            sleep(1000);
+            printf("...\n");
+            printf("치료가 완료되었습니다!\n");
+            printf("===============================\n");
+            for (int i=0; i<pokemonNum;i++){
+                trainer.pokemonList[i]->currentHp = trainer.pokemonList[i]->hp;
+                printf("%s\t%s\t%d\t%d\n",
+                    trainer.pokemonList[i]->name, 
+                    trainer.pokemonList[i]->type, 
+                    trainer.pokemonList[i]->currentHp, 
+                    trainer.pokemonList[i]->hp);
+            }
+            printf("(엔터입력 후 메인화면으로)\n");
+            do{
+                scanf("%c",&ch);
+            }while(ch!='\n');
         }
+
+        //포켓몬도감 (내꺼)
         else if (select==5){
              // 포켓몬 정보 출력 예시
             for (int i = 0; i < pokemonNum; i++) {
@@ -177,11 +294,12 @@ int main(){
                     trainer.pokemonList[i]->damage);
             }
             // enter 입력시 메인화면으로
-            printf("press enter to go back\n");
+            printf("(엔터입력 후 메인화면으로)\n");
             do{
                 scanf("%c",&ch);
             }while(ch!='\n');
         }
+
         else{
             printf("잘못된 입력입니다. 다시 시도해주세요!\n\n");
         }
